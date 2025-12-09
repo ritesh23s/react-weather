@@ -1,50 +1,58 @@
-# WeatherNow (React + Vite)
+# WeatherNow — React + Vite (Premium Weather App)
 
-A simple, responsive, premium Blue-Glass style Weather App built with React and Vite using OpenWeather APIs.  
-Features current weather, hourly forecast (next 12 hours), a 7-day weekly summary (derived from 5-day data), °C/°F toggle, light/dark theme, animated icon placeholders, and search history.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-2ea44f?style=for-the-badge)](https://ritesh23s.github.io/react-weather/)
+  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-8A2BE2?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![OpenWeather](https://img.shields.io/badge/OpenWeather-FF851B?style=for-the-badge&logo=google-cloud&logoColor=white)
+![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
----
-
-## Features
-- Search current weather by city name
-- Current temperature, feels-like, humidity, wind
-- Next 12 hours forecast (3-hour intervals from 5-day API)
-- 7-day weekly forecast (aggregated from 5-day API)
-- °C ↔ °F temperature toggle
-- Light / Dark theme (persisted in localStorage)
-- Search history with per-item delete (persisted in localStorage)
-- Premium Blue-Glass UI, responsive for mobile/tablet/desktop
-- Mock mode available for demo without an API key
+A modern, responsive **Blue-Glass style Weather Application** built using **React + Vite** and **OpenWeather APIs**.  
+It features current weather, hourly & weekly forecasts, a theme system, temperature switch, search history, and premium UI styling.
 
 ---
 
-## Quick Start (Local)
+## 🚀 Features
 
-1. Clone the repository:
+- 🔍 Search weather by city  
+- 🌡️ Temp, feels-like, humidity, wind  
+- ⏳ Hourly forecast (next ~12 hours)  
+- 📅 Weekly forecast (7-day summary)  
+- 🔁 °C ↔ °F toggle  
+- 🌓 Light / Dark theme (saved in localStorage)  
+- 🧊 Premium Blue-Glass UI (fully responsive)  
+- 🕓 Search history with delete option  
+- 🧪 Mock Mode (useful for demos without internet)
+
+---
+
+## ⚡ Quick Start (Local Setup)
+
+### 1️⃣ Clone the repo
 ```bash
 git clone https://github.com/ritesh23s/react-weather.git
 cd react-weather
 ```
 
-2. Install dependencies:
+### 2️⃣ Install dependencies
 ```bash
 npm install
 ```
 
-3. Add environment variable:
-Create a `.env` file in the project root with:
+### 3️⃣ Add API Key  
+Create `.env` file:
 ```
-VITE_WEATHER_API_KEY=YOUR_OPENWEATHER_API_KEY
+VITE_WEATHER_API_KEY=MY_OPENWEATHER_API_KEY
 ```
-> **Do not commit** `.env` — it's included in `.gitignore`.
 
-4. Start dev server:
+### 4️⃣ Start dev server
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173/`.
+Visit: http://localhost:5173/
 
-5. Build for production:
+### 5️⃣ Build for production
 ```bash
 npm run build
 npm run preview
@@ -52,46 +60,97 @@ npm run preview
 
 ---
 
-## Project Structure (exact)
+## 📁 Project Structure
+
+```
+react-weather/
+├── public/
+│   └── favicon.png
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── HourlyForecast.jsx
+│   │   ├── SearchHistory.jsx
+│   │   ├── TemperatureToggle.jsx
+│   │   ├── ThemeToggle.jsx
+│   │   ├── WeatherCard.jsx
+│   │   └── WeeklyForecast.jsx
+│   ├── styles/
+│   │   ├── darkmode.css
+│   │   ├── forecast.css
+│   │   └── glass.css
+│   ├── utils/
+│   │   ├── iconMap.js
+│   │   └── tempConvert.js
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+└── vite.config.js
 ```
 
+---
 
+## 🌤️ API Information
 
+Uses **OpenWeather Free Tier**:
 
+| Purpose | Endpoint |
+|--------|----------|
+| Current Weather | `/data/2.5/weather` |
+| 5-Day Forecast | `/data/2.5/forecast` |
 
-## Notes on APIs & Data
-- Uses OpenWeather **Current Weather** and **5-day / 3-hour Forecast** endpoints (free tier).
-- For hourly view we take the first 4 entries (3-hour intervals → ~12 hours).
-- For weekly view we aggregate each day’s min/max from the 5-day list to create a 7-day summary.
-- If you need exact One Call data (single-call hourly/daily), you can switch to OpenWeather One Call API (may require different plan).
+**Data Processing:**
+- Hourly data = first 4 entries (3-hour intervals → ~12 hours)
+- Weekly summary = min/max per day from 5-day list
 
 ---
 
-## Mock Mode
-If you don't want to use an API key during demo, enable `MOCK_MODE` in `src/App.jsx` (set to `true`). App will show sample data without network calls.
+## 🧪 Mock Mode
+
+Enable inside `App.jsx`:
+
+```js
+const MOCK_MODE = true;
+```
+
+Disables API calls and loads sample data — great for offline demos.
 
 ---
 
-## Accessibility & UX Notes
-- Theme persists in `localStorage` under key `theme`.
-- Search history persists under key `weather_history_v1`.
-- Components are split for clarity: `components/` contains UI pieces, `utils/` contains helper logic, `styles/` contains CSS layers.
+## 🧠 UX & Local Storage
+
+| Feature | Storage Key |
+|---------|--------------|
+| Theme | `theme` |
+| Search History | `weather_history_v1` |
+
+- Smooth animations  
+- Optimized dark mode  
+- Fully responsive on mobile, tablet, desktop  
 
 ---
 
-## Possible Enhancements
-- Auto geolocation (GPS) to fetch current location weather
-- Lottie/SVG animated icons instead of emoji placeholders
-- PWA support (offline caching + installable)
-- AQI and radar/map integration
+## 💡 Future Enhancements
+
+- GPS auto-detect weather  
+- Lottie/SVG animated icons  
+- PWA offline mode  
+- AQI + radar integration  
+- Notifications  
 
 ---
 
-## Author
-Shubham (Sugu) — `@ritesh23s` on GitHub
+## 👨‍💻 Author  
+**Shubham (Sugu)**  
+GitHub: https://github.com/ritesh23s
 
 ---
 
-## License
-This project is for learning and educational purposes.
-
+## 📜 License  
+This project is for **learning & educational purposes**.
