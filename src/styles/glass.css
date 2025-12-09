@@ -1,0 +1,217 @@
+/* ------------------------------
+   APPLE STYLE BLUE GLASS UI
+   ------------------------------ */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-shadow: rgba(15, 23, 42, 0.30);
+  --glass-blur: 18px;
+  --blue-gradient: linear-gradient(180deg, #dff2ff 0%, #e8f4ff 100%);
+  --text-dark: #0f172a;
+  --text-light: #ffffff;
+}
+
+/* Base layout */
+body {
+  background: linear-gradient(180deg, #cfe9ff, #e8f4ff);
+}
+
+/* Glass card base */
+.glass {
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 60px var(--glass-shadow);
+}
+
+/* Weather Card */
+.weather-card {
+  margin: 20px auto;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.icon {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.temp-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.temp {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.desc {
+  text-transform: capitalize;
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.meta {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+/* Temperature Toggle */
+.temp-toggle {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.temp-toggle button {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.temp-toggle .active {
+  background: #3b82f6;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Search history chips */
+.history-wrap {
+  margin-top: 10px;
+}
+
+.history-chip {
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  margin: 5px;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.history-chip span:hover {
+  text-decoration: underline;
+}
+
+.history-chip .delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Fade animation */
+.fade-in {
+  animation: fade 0.25s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* THEME TOGGLE - glass pill with knob and sun/moon icons */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 999px;
+  align-self: center;
+  user-select: none;
+}
+
+/* icons */
+.theme-toggle .theme-icon {
+  font-size: 16px;
+  line-height: 1;
+  width: 20px;
+  text-align: center;
+  opacity: 0.7;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+/* the track - pill */
+.theme-toggle .toggle-track {
+  width: 56px;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* knob */
+.theme-toggle .toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,#ffffff,#e6f0ff);
+  box-shadow: 0 6px 14px rgba(16,24,40,0.12);
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), background .22s ease, box-shadow .22s ease;
+  transform: translateX(0);
+}
+
+/* dark state: move knob to right and change styles */
+.theme-toggle.is-dark .toggle-knob {
+  transform: translateX(26px);
+  background: linear-gradient(180deg,#0f172a,#0b1220);
+  box-shadow: 0 8px 22px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* highlight active icon */
+.theme-toggle.is-dark .moon {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.05);
+}
+.theme-toggle.is-dark .sun {
+  opacity: 0.45;
+}
+.theme-toggle.is-light .sun {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.05);
+}
+.theme-toggle.is-light .moon {
+  opacity: 0.45;
+}
+
+/* keyboard focus */
+.theme-toggle:focus {
+  outline: 2px solid rgba(59,130,246,0.18);
+  outline-offset: 3px;
+  border-radius: 999px;
+}

@@ -1,0 +1,106 @@
+html[data-theme="dark"] {
+  --dark-text-strong: #e6eefc;  /* main title / temps */
+  --dark-text-medium: #cbd5e8;  /* subtitles / meta */
+  --dark-text-muted: #94a3b8;   /* less important text */
+  --glass-dark-bg: rgba(8, 12, 20, 0.55); /* stronger dark glass */
+  --glass-dark-border: rgba(255,255,255,0.06);
+}
+
+/* make glass panels slightly more opaque in dark so text stands out */
+html[data-theme="dark"] .glass {
+  background: var(--glass-dark-bg);
+  border: 1px solid var(--glass-dark-border);
+}
+
+/* Main title and large numbers (temperature) */
+html[data-theme="dark"] .title,
+html[data-theme="dark"] .city-title,
+html[data-theme="dark"] .temp {
+  color: var(--dark-text-strong);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtitles, descriptions and section headings */
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .desc,
+html[data-theme="dark"] .hourly h3,
+html[data-theme="dark"] .weekly h3,
+html[data-theme="dark"] .d-name,
+html[data-theme="dark"] .h-time {
+  color: var(--dark-text-medium);
+}
+
+/* meta text (humidity, feels like, wind) */
+html[data-theme="dark"] .meta,
+html[data-theme="dark"] .note,
+html[data-theme="dark"] .history-header strong {
+  color: var(--dark-text-muted);
+}
+
+/* hourly / day temps */
+html[data-theme="dark"] .h-temp,
+html[data-theme="dark"] .d-temp,
+html[data-theme="dark"] .temp-row .temp {
+  color: var(--dark-text-strong);
+  font-weight: 700;
+}
+
+/* history chips and buttons - more visible */
+html[data-theme="dark"] .history-chip,
+html[data-theme="dark"] .history-chip span,
+html[data-theme="dark"] .history-chip .delete-btn {
+  color: var(--dark-text-strong);
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* search input and button contrast */
+html[data-theme="dark"] .search-input {
+  background: rgba(255,255,255,0.03);
+  color: var(--dark-text-strong);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+html[data-theme="dark"] .search-input::placeholder {
+  color: rgba(230,238,252,0.55);
+}
+html[data-theme="dark"] .search-btn {
+  background: linear-gradient(180deg,#2563eb,#1e40af);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(14, 35, 90, 0.45);
+}
+
+/* make icons (emoji placeholders) pop a bit */
+html[data-theme="dark"] .icon,
+html[data-theme="dark"] .h-icon,
+html[data-theme="dark"] .d-icon {
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.6));
+  font-size: 1.05em;
+}
+
+/* improve small labels (Next 12 Hours etc.) */
+html[data-theme="dark"] .history-header,
+html[data-theme="dark"] .hourly h3,
+html[data-theme="dark"] .weekly h3 {
+  letter-spacing: 0.2px;
+  font-weight: 600;
+}
+
+/* ensure toggle text/icons are visible */
+html[data-theme="dark"] .theme-toggle .theme-icon,
+html[data-theme="dark"] .temp-toggle button {
+  color: var(--dark-text-strong);
+}
+
+/* mobile adjustments (if small screens had contrast issues) */
+@media (max-width: 680px) {
+  html[data-theme="dark"] .temp { font-size: 46px; }
+  html[data-theme="dark"] .title { font-size: 30px; }
+  html[data-theme="dark"] .hour-item { min-width: 78px; }
+}
+
+/* small extra - increase card border contrast */
+html[data-theme="dark"] .day-item,
+html[data-theme="dark"] .hour-item {
+  border: 1px solid rgba(255,255,255,0.05);
+}
