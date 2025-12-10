@@ -1,4 +1,5 @@
-// 🟦 Apple-style Blue Glass UI Animated Icons
+// 🟦 Blue Glass UI Animated Icons
+
 export function getAnimatedIcon(main) {
   if (!main) return "☀️";
 

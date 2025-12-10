@@ -1,6 +1,5 @@
-/* ------------------------------
-   APPLE STYLE BLUE GLASS UI
-   ------------------------------ */
+/* BLUE GLASS UI */
+
 :root {
   --glass-bg: rgba(255, 255, 255, 0.18);
   --glass-border: rgba(255, 255, 255, 0.35);

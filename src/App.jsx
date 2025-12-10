@@ -26,9 +26,8 @@ export default function App() {
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  // ------------------------------
   // LOAD THEME FROM LOCAL STORAGE
-  // ------------------------------
+
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     if (saved) {
@@ -37,9 +36,9 @@ export default function App() {
     }
   }, []);
 
-  // ------------------------------
-  // LOAD SEARCH HISTORY
-  // ------------------------------
+
+  // load search hostory
+
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY);
     if (saved) {
@@ -109,9 +108,7 @@ export default function App() {
     setLoading(false);
   }
 
-  // ------------------------------
-  // SUBMIT HANDLER
-  // ------------------------------
+  // submit header
   function handleSubmit(e) {
     e.preventDefault();
     searchCity(city);
